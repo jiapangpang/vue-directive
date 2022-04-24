@@ -8,7 +8,7 @@ const count = ref(0)
 
 <template>
   <div>
-    <div v-sizeDrag class="drag-container"></div>
+    <div v-sizeDrag class="drag-container" />
   </div>
 </template>
 
@@ -33,5 +33,7 @@ code {
   border: #42b983 2px solid;
   width: 30rem;
   height: 30rem;
+  max-width: 50rem;
+  max-height: 40rem;
 }
 </style>
