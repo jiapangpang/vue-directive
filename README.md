@@ -6,7 +6,13 @@
 vue-directive: v-sizeDrag.
 make the element size draggable
 ```
-import size-drag/dist/index.css \\ in main.ts
+\\ in main.ts
+import size-drag/dist/index.css 
+import sizeDrag from 'size-drag';
+app.use(sizeDrag)
+
+\\in *.vue
+<div v-sizeDrag />
 ```
 ## License
 
