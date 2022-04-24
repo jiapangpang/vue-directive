@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/size-drag?color=a1b858&label=)](https://www.npmjs.com/package/size-drag)
 
-## intrduce
+## introduce
 vue-directive: v-sizeDrag.
 make the element size draggable
 ```
