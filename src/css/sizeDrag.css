@@ -1,0 +1,53 @@
+[dragContainer] {
+  position: relative;
+}
+[dragContainer]:hover .up-bar,
+[dragContainer]:hover .bottom-bar,
+[dragContainer]:hover .left-bar,
+[dragContainer]:hover .right-bar {
+  visibility: visible;
+}
+[dragContainer]:hover .up-bar,
+[dragContainer]:hover .bottom-bar {
+  cursor: row-resize;
+}
+[dragContainer]:hover .left-bar,
+[dragContainer]:hover .right-bar {
+  cursor: col-resize;
+}
+[dragContainer] .up-bar,
+[dragContainer] .bottom-bar {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  transition: all 0.2s ease-in-out;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  visibility: hidden;
+}
+[dragContainer] .left-bar,
+[dragContainer] .right-bar {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  transition: all 0.2s ease-in-out;
+  width: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  visibility: hidden;
+}
+[dragContainer] .up-bar {
+  top: 2px;
+}
+[dragContainer] .bottom-bar {
+  bottom: 2px;
+}
+[dragContainer] .left-bar {
+  left: 2px;
+}
+[dragContainer] .right-bar {
+  right: 2px;
+}
+
+/*# sourceMappingURL=sizeDrag.css.map */

@@ -1,0 +1,53 @@
+[dragContainer] {
+    position: relative;
+    &:hover {
+        .up-bar,
+        .bottom-bar,
+        .left-bar,
+        .right-bar {
+            visibility: visible;
+        }
+        .up-bar,
+        .bottom-bar {
+            cursor: row-resize;
+        }
+        .left-bar,
+        .right-bar {
+            cursor: col-resize;
+        }
+    }
+    .up-bar,
+    .bottom-bar {
+        position: absolute;
+        left: 10%;
+        width: 80%;
+        transition: all 0.2s ease-in-out;
+        height: 4px;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        border-radius: 2px;
+        visibility: hidden;
+    }
+    .left-bar,
+    .right-bar {
+        position: absolute;
+        top: 10%;
+        height: 80%;
+        transition: all 0.2s ease-in-out;
+        width: 4px;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        border-radius: 2px;
+        visibility: hidden;
+    }
+    .up-bar {
+        top: 2px;
+    }
+    .bottom-bar {
+        bottom: 2px;
+    }
+    .left-bar {
+        left: 2px;
+    }
+    .right-bar {
+        right: 2px;
+    }
+}
