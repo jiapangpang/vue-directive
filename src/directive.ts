@@ -36,10 +36,10 @@ function registerDrag(el: HTMLElement, container: HTMLElement, position: Positio
     window.addEventListener('mouseup', mouseup)
     takeoff(container, position)
     if (direction === 'y')
-      document.body.style.cursor = 'col-resize'
+      document.body.style.cursor = 'row-resize'
 
     else
-      document.body.style.cursor = 'row-resize'
+      document.body.style.cursor = 'col-resize'
 
     e.stopPropagation()
     e.preventDefault()
