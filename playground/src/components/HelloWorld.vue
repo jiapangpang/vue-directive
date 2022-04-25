@@ -4,16 +4,19 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+function increment() {
+  count.value++
+}
 </script>
 
 <template>
   <div>
     <div class="outer-container">
-      <div class="before">
+      <div class="before" @click="increment">
         before
       </div>
-      <div v-sizeDrag class="drag-container moving" style="top: 2rem; z-index: 10;" />
-      <div class="before after">
+      <div v-sizeDrag class="drag-container moving" style="top:2rem;left: 3rem;" />
+      <div class="before">
         after
       </div>
     </div>
@@ -42,6 +45,9 @@ code {
   padding: 1rem;
   position: absolute;
   display: flex;
+  width: 80%;
+  height: 80%;
+
 }
 
 .drag-container {
@@ -51,7 +57,8 @@ code {
   height: 30rem;
   max-width: 50rem;
   max-height: 40rem;
-  position: relative;
+  position: fixed;
+  z-index:2;
   /* top:2rem;
   left: 2rem; */
 }
@@ -60,6 +67,7 @@ code {
   margin:0 1rem;
   width: 10rem;
   height: 10rem;
+   z-index: 10;
 }
 .after{
   position: absolute;

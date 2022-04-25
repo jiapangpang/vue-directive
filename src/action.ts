@@ -1,6 +1,6 @@
 import type { PositionContext } from './directive'
 
-const CacheStyle = ['top', 'left', 'maxWidth', 'transition', 'opacity', 'z-index']
+const CacheStyle = ['top', 'left', 'maxWidth', 'opacity', 'transition', 'z-index', 'position']
 function registerDrag(el: HTMLElement, container: HTMLElement, position: PositionContext, direction: string, reverse = false) {
   function mousedown(e: MouseEvent) {
     position.x = e.clientX
@@ -106,8 +106,8 @@ function takeoff(el: HTMLElement, position: PositionContext) {
     placeholder.style.height = `${position.offsetHeight}px`
     placeholder.style.width = `${position.offsetWidth}px`
     el.parentElement?.insertBefore(placeholder!, anchor)
+    el.style.position = 'absolute'
   }
-  el.style.position = 'absolute'
   el.style.transition = 'none'
   el.style.opacity = '0.8'
   el.style.zIndex = '9999'
@@ -127,7 +127,7 @@ function land(el: HTMLElement, position: PositionContext) {
   }
   el.style.top = ''
   el.style.left = ''
-  el.style.position = 'relative'
+  el.style.position = ''
   restoreStyle(el, position)
 }
 /**

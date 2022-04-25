@@ -57,7 +57,6 @@ const sizeDragDirective: Directive = {
   },
   // 绑定元素的父组件更新前调用
   beforeUpdate() {
-    // TODO:销毁之前的时间绑定，防止在下一轮更新的时候position发生变化
   },
   // 在绑定元素的父组件
   // 及他自己的所有子节点都更新后调用
