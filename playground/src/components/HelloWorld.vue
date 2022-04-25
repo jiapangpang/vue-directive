@@ -1,21 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-function increment() {
-  count.value++
+import type { CSSProperties } from 'vue'
+import { reactive } from 'vue'
+const styleObj: CSSProperties = reactive({
+  top: '2rem',
+  left: '2rem',
+  position: 'absolute',
+  maxWidth: '',
+})
+function updateStyle() {
+  styleObj.position = styleObj.position === 'absolute' ? 'relative' : 'absolute'
+}
+function updateWidth() {
+  styleObj.maxWidth = styleObj.maxWidth === '' ? '30rem' : ''
 }
 </script>
 
 <template>
   <div>
+    <div>
+      <button style="height:1rem" @click="updateStyle">
+        Change Position
+      </button><span>now Position:{{ styleObj.position }}</span>
+      <button style="height:1rem" @click="updateWidth">
+        Change max-width
+      </button>
+    </div>
+
     <div class="outer-container">
-      <div class="before" @click="increment">
+      <div class="before">
         before
       </div>
-      <div v-sizeDrag class="drag-container moving" style="top:2rem;left: 3rem;" />
+      <div v-sizeDrag class="drag-container moving" :style="styleObj" />
       <div class="before">
         after
       </div>
@@ -57,7 +72,7 @@ code {
   height: 30rem;
   max-width: 50rem;
   max-height: 40rem;
-  position: fixed;
+  position: relative;
   z-index:2;
   /* top:2rem;
   left: 2rem; */
