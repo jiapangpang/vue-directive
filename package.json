@@ -1,6 +1,6 @@
 {
   "name": "size-drag",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "packageManager": "pnpm@6.32.3",
   "description": "vue-directive:element size drag",
   "homepage": "https://github.com/godisjxf/vue-directive#readme",
