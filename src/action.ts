@@ -1,13 +1,11 @@
 import type { PositionContext } from './init'
 import { updatePositionContext } from './init'
 
-const CacheStyle = ['top', 'left', 'maxWidth', 'opacity', 'transition', 'z-index', 'position']
+const CacheStyle = ['top', 'left', 'opacity', 'transition', 'z-index', 'position']
 function registerDrag(el: HTMLElement, container: HTMLElement, position: PositionContext, direction: string, reverse = false) {
   function mousedown(e: MouseEvent) {
-    if (position.needUpdate) {
+    if (position.needUpdate)
       updatePositionContext(container)
-      position.needUpdate = false
-    }
 
     position.x = e.clientX
     position.y = e.clientY
@@ -44,6 +42,21 @@ function registerDrag(el: HTMLElement, container: HTMLElement, position: Positio
           position.overflowY = position.overflowY + deltaY
         }
       }
+      else if (position.minHeight && virtualHeight < position.minHeight) {
+        if (position.minHeight !== position.height) {
+          const delta = position.minHeight - position.height
+          position.overflowX = nextHeight - position.minHeight
+          position.height = position.minHeight
+          if (reverse) {
+            position.left += delta
+            container.style.top = `${position.top}px`
+          }
+          container.style.height = `${position.height}px`
+        }
+        else {
+          position.overflowY = position.overflowY + deltaY
+        }
+      }
       else {
         position.height = nextHeight
         if (reverse) {
@@ -66,6 +79,21 @@ function registerDrag(el: HTMLElement, container: HTMLElement, position: Positio
           position.width = position.maxWidth
           if (reverse) {
             position.left -= delta
+            container.style.left = `${position.left}px`
+          }
+          container.style.width = `${position.width}px`
+        }
+        else {
+          position.overflowX = position.overflowX + deltaX
+        }
+      }
+      else if (position.minWidth && virtualWidth < position.minWidth) {
+        if (position.minWidth !== position.width) {
+          const delta = position.minWidth - position.width
+          position.overflowX = nextWidth - position.minWidth
+          position.width = position.minWidth
+          if (reverse) {
+            position.left += delta
             container.style.left = `${position.left}px`
           }
           container.style.width = `${position.width}px`

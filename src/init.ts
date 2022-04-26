@@ -128,13 +128,15 @@ function getSizeLimit(computeStyle: CSSStyleDeclaration, position: PositionConte
   if (result)
     position.maxHeight = parseInt(result[1])
 
+  const barSize = computeStyle.getPropertyValue('--size-drag-bar').trim()
+
+  result = barSize.match(sizeReg)
+  const barSizeNum = (result ? parseInt(result[1]) : 4) * 3
   result = computeStyle.minWidth.match(sizeReg)
-  if (result)
-    position.minWidth = parseInt(result[1])
+  position.minWidth = result ? Math.max(parseInt(result[1]), barSizeNum) : barSizeNum
 
   result = computeStyle.minHeight.match(sizeReg)
-  if (result)
-    position.minHeight = parseInt(result[1])
+  position.minHeight = result ? Math.max(parseInt(result[1]), barSizeNum) : barSizeNum
 }
 
 /**

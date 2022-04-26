@@ -3,11 +3,16 @@
   "version": "0.5.1",
   "packageManager": "pnpm@6.32.3",
   "description": "vue-directive:element size drag",
-  "keywords": [],
   "homepage": "https://github.com/godisjxf/vue-directive#readme",
   "bugs": {
     "url": "https://github.com/godisjxf/vue-directive/issues"
   },
+  "keywords": [
+    "vue",
+    "directive",
+    "size",
+    "drag"
+  ],
   "license": "MIT",
   "author": "jxfffff <jjjjjjxf@qq.com>",
   "repository": {

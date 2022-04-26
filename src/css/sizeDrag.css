@@ -1,4 +1,5 @@
 [dragContainer] {
+  --size-drag-bar:4px;
   position: relative;
 }
 [dragContainer]:hover .up-bar,
@@ -21,7 +22,7 @@
   left: 10%;
   width: 80%;
   transition: all 0.2s ease-in-out;
-  height: 4px;
+  height: var(--size-drag-bar);
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   visibility: hidden;
@@ -32,7 +33,7 @@
   top: 10%;
   height: 80%;
   transition: all 0.2s ease-in-out;
-  width: 4px;
+  width: var(--size-drag-bar);
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   visibility: hidden;
@@ -50,4 +51,3 @@
   right: 2px;
 }
 
-/*# sourceMappingURL=sizeDrag.css.map */

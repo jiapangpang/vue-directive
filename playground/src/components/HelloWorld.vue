@@ -2,10 +2,10 @@
 import type { CSSProperties } from 'vue'
 import { reactive } from 'vue'
 const styleObj: CSSProperties = reactive({
-  // top: '2rem',
-  // left: '2rem',
-  position: 'absolute',
-  maxWidth: '',
+  top: '2rem',
+  left: '2rem',
+  position: 'relative',
+  maxWidth: '60rem',
 })
 function updateStyle() {
   styleObj.position = styleObj.position === 'absolute' ? 'relative' : 'absolute'
@@ -66,12 +66,15 @@ code {
 }
 
 .drag-container {
-  border: #42b983 2px solid;
+  --color:#42b983;
+  border: var(--color) 2px solid;
   background: #b95242;
   width: 30rem;
   height: 30rem;
-  max-width: 50rem;
-  max-height: 40rem;
+  /* max-width: 50rem;
+  max-height: 40rem; */
+  /* min-height: 20rem;
+  min-width: 20rem; */
   position: relative;
   z-index:2;
   /* top:2rem;
