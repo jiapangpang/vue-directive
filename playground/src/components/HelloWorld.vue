@@ -2,8 +2,8 @@
 import type { CSSProperties } from 'vue'
 import { reactive } from 'vue'
 const styleObj: CSSProperties = reactive({
-  top: '2rem',
-  left: '2rem',
+  // top: '2rem',
+  // left: '2rem',
   position: 'absolute',
   maxWidth: '',
 })

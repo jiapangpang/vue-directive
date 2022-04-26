@@ -98,13 +98,13 @@ function registerDrag(el: HTMLElement, container: HTMLElement, position: Positio
 }
 function takeoff(el: HTMLElement, position: PositionContext) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { top, left, width, height } = el.getBoundingClientRect() // 如果css中有top,left则使用Rect相对于窗口的位置定位会出错
-  position.style = el.attributes.getNamedItem('style')?.value || ''
   cacheStyle(el, position)
+  // const { top, left, width, height } = el.getBoundingClientRect() // 如果css中有top,left则使用Rect相对于窗口的位置定位会出错
+  position.style = el.attributes.getNamedItem('style')?.value || ''
   position.top = el.offsetTop
   position.left = el.offsetLeft
-  position.offsetWidth = width
-  position.offsetHeight = height
+  position.offsetWidth = el.offsetWidth
+  position.offsetHeight = el.offsetHeight
   if (!position.separateMode) {
     const anchor = el.nextElementSibling
     const placeholder = position.placeholder!

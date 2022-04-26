@@ -112,9 +112,10 @@ function initContext(el: HTMLElement, positionContext: PositionContext) {
 
 export function updatePositionContext(el: HTMLElement) {
   const context = el.__sizeDrag
-  if (!context)
+  if (context) {
     initContext(el, context)
-  context.needUpdate = false
+    context.needUpdate = false
+  }
 }
 
 function getSizeLimit(computeStyle: CSSStyleDeclaration, position: PositionContext) {
