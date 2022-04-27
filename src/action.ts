@@ -1,12 +1,8 @@
 import type { PositionContext } from './init'
-import { updatePositionContext } from './init'
 
 const CacheStyle = ['top', 'left', 'opacity', 'transition', 'z-index', 'position']
 function registerDrag(el: HTMLElement, container: HTMLElement, position: PositionContext, direction: string, reverse = false) {
   function mousedown(e: MouseEvent) {
-    if (position.needUpdate)
-      updatePositionContext(container)
-
     position.x = e.clientX
     position.y = e.clientY
     window.addEventListener('mousemove', mousemove)

@@ -11,7 +11,7 @@ function updateStyle() {
   styleObj.position = styleObj.position === 'absolute' ? 'relative' : 'absolute'
 }
 function updateWidth() {
-  styleObj.maxWidth = styleObj.maxWidth === '' ? '30rem' : ''
+  styleObj.maxWidth = styleObj.maxWidth === '' ? '40rem' : ''
 }
 </script>
 

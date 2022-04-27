@@ -1,7 +1,7 @@
 import type { Directive } from 'vue'
 import registerDrag from './action'
 import type { PositionContext } from './init'
-import { creatPositionContext, createBar } from './init'
+import { creatPositionContext, createBar, updatePositionContext } from './init'
 
 /**
    * Returns the average of two numbers.
@@ -37,8 +37,11 @@ const sizeDragDirective: Directive = {
   },
   // 在绑定元素的父组件
   // 及他自己的所有子节点都更新后调用
-  updated() {
-    // TODO: 想办法更新position,或者注册到el上
+  updated(el) {
+    // Promise.resolve().then(() => {
+    //   updatePositionContext(el)
+    // })
+    updatePositionContext(el)
   }, // 绑定元素的父组件卸载前调用
   beforeUnmount() { },
   // 绑定元素的父组件卸载后调用

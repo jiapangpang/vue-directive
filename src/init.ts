@@ -98,6 +98,7 @@ function initContext(el: HTMLElement, positionContext: PositionContext) {
   positionContext.width = el.clientWidth
   positionContext.height = el.clientHeight
   const computeStyle = getComputedStyle(el)
+
   getSizeLimit(computeStyle, positionContext)
   const position = computeStyle.position
   positionContext.separateMode = position === 'absolute' || position === 'fixed'
@@ -121,12 +122,11 @@ export function updatePositionContext(el: HTMLElement) {
 function getSizeLimit(computeStyle: CSSStyleDeclaration, position: PositionContext) {
   let result: RegExpMatchArray | null = null
   result = computeStyle.maxWidth.match(sizeReg)
-  if (result)
-    position.maxWidth = parseInt(result[1])
+
+  position.maxWidth = result ? parseInt(result[1]) : undefined
 
   result = computeStyle.maxHeight.match(sizeReg)
-  if (result)
-    position.maxHeight = parseInt(result[1])
+  position.maxHeight = result ? parseInt(result[1]) : undefined
 
   const barSize = computeStyle.getPropertyValue('--size-drag-bar').trim()
 
