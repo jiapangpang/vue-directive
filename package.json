@@ -3,9 +3,9 @@
   "version": "0.5.2",
   "packageManager": "pnpm@6.32.3",
   "description": "vue-directive:element size drag",
-  "homepage": "https://github.com/godisjxf/vue-directive#readme",
+  "homepage": "https://github.com/jiapangpang/vue-directive#readme",
   "bugs": {
-    "url": "https://github.com/godisjxf/vue-directive/issues"
+    "url": "https://github.com/jiapangpang/vue-directive/issues"
   },
   "keywords": [
     "vue",
@@ -17,7 +17,7 @@
   "author": "jxfffff <jjjjjjxf@qq.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/godisjxf/vue-directive.git"
+    "url": "git+https://github.com/jiapangpang/vue-directive.git"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
