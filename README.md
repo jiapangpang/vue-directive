@@ -12,7 +12,8 @@ import sizeDrag from 'size-drag';
 app.use(sizeDrag)
 
 \\in *.vue
-<div v-sizeDrag />
+\\myCallback:((el:htmlElement)=>void)|null
+<div v-sizeDrag="myCallback" />
 
 \\in style,use css to config bar size ,now only suppot px.default:4px. 
 --size-drag-bar: 4px

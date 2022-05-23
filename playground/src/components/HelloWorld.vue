@@ -13,6 +13,10 @@ function updateStyle() {
 function updateWidth() {
   styleObj.maxWidth = styleObj.maxWidth === '' ? '40rem' : ''
 }
+function sizeCb(el: HTMLElement) {
+  // eslint-disable-next-line no-console
+  console.log(el.clientWidth)
+}
 </script>
 
 <template>
@@ -30,7 +34,7 @@ function updateWidth() {
       <div class="before">
         before
       </div>
-      <div v-sizeDrag class="drag-container moving" :style="styleObj" />
+      <div v-sizeDrag="sizeCb" class="drag-container moving" :style="styleObj" />
       <div class="before">
         after
       </div>

@@ -1,7 +1,8 @@
 import type { PositionContext } from './init'
 
+export type sizeDragCallback = ((el: Element|null) => void) |null
 const CacheStyle = ['top', 'left', 'opacity', 'transition', 'z-index', 'position']
-function registerDrag(el: HTMLElement, container: HTMLElement, position: PositionContext, direction: string, reverse = false) {
+function registerDrag(el: HTMLElement, container: HTMLElement, position: PositionContext, direction: string, cb: sizeDragCallback = null, reverse = false) {
   function mousedown(e: MouseEvent) {
     position.x = e.clientX
     position.y = e.clientY
@@ -117,6 +118,7 @@ function registerDrag(el: HTMLElement, container: HTMLElement, position: Positio
     position.overflowY = 0
     land(container, position)
     document.body.style.cursor = ''
+    cb && cb(container)
   }
   el.addEventListener('mousedown', mousedown, true)
 }
